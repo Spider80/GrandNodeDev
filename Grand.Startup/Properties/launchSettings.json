@@ -9,11 +9,12 @@
   },
   "profiles": {
     "IIS Express": {
-      "commandName": "IISExpress",      
+      "commandName": "IISExpress",
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+      },
+      "nativeDebugging": true
     },
     "Grand.Startup": {
       "commandName": "Project",

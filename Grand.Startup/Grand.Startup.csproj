@@ -15,7 +15,11 @@
     <EnableDefaultContentItems>false</EnableDefaultContentItems>
   </PropertyGroup>
 
-  
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>bin\Debug</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+  </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\Grand.Domain\Grand.Domain.csproj" />
     <ProjectReference Include="..\Grand.Core\Grand.Core.csproj" />
@@ -27,37 +31,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="App_Data\**" CopyToPublishDirectory="PreserveNewest" CopyToOutputDirectory="PreserveNewest" />
-    <Content Include="Themes\**" CopyToPublishDirectory="PreserveNewest" CopyToOutputDirectory="PreserveNewest"/>
-    <Content Include="Roslyn\**" CopyToPublishDirectory="PreserveNewest" CopyToOutputDirectory="PreserveNewest"/>
-    <Content Include="logs\**" CopyToPublishDirectory="PreserveNewest" CopyToOutputDirectory="PreserveNewest"/>
-    <Content Include="Plugins\**" CopyToPublishDirectory="PreserveNewest" CopyToOutputDirectory="PreserveNewest"/>
-    <!--<Content Remove="wwwroot\content\images\thumbs\*.jpeg;wwwroot\content\images\thumbs\*.jpg;wwwroot\content\images\thumbs\*.png" />
-    <Content Remove="wwwroot\bundles\*.css;wwwroot\bundles\*.js" />-->
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="..\Grand.Admin\wwwroot\**" Link="wwwroot\%(RecursiveDir)\%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
-    <Content Include="..\Grand.Web\wwwroot\**" Link="wwwroot\%(RecursiveDir)\%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
-    <!--<Content Include="..\Grand.Web\Themes\**" Link="Themes\%(RecursiveDir)\%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
-    <Content Include="..\Grand.Web\Views\**" Link="Views\%(RecursiveDir)\%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />-->
-  </ItemGroup>
-  <Target Name="CopyWWWRootFiles" BeforeTargets="Build">
-    <ItemGroup>
-      <_CopyAdminItems Include="..\Grand.Admin\wwwroot\**" />
-      <_CopyWebItems Include="..\Grand.Web\wwwroot\**" />
-    </ItemGroup>
-    <Copy SourceFiles="@(_CopyAdminItems)" DestinationFiles="wwwroot\%(RecursiveDir)\%(Filename)%(Extension)" SkipUnchangedFiles="true" OverwriteReadonlyFiles="true" />
-    <Copy SourceFiles="@(_CopyWebItems)" DestinationFiles="wwwroot\%(RecursiveDir)\%(Filename)%(Extension)" SkipUnchangedFiles="true" OverwriteReadonlyFiles="true" />
-  </Target>
-  <Target Name="PublishViews" BeforeTargets="PrepareForPublish">
-    <ItemGroup>
-      <ThemeViews Include="Themes/**/*" />
-      <PluginFiles Include="Plugins/**/*" />
-    </ItemGroup>
-    <Copy SourceFiles="@(ThemeViews)" DestinationFolder="$(PublishDir)/Themes/%(RecursiveDir)" SkipUnchangedFiles="true" />
-    <Copy SourceFiles="@(PluginFiles)" DestinationFolder="$(PublishDir)/Plugins/%(RecursiveDir)" SkipUnchangedFiles="true" />
-  </Target>
-  
+    <Content Include="App_Data\**" CopyToPublishDirectory="PreserveNewest" CopyToOutputDirectory="PreserveNewest" />    
+    <Content Include="Roslyn\**" CopyToPublishDirectory="PreserveNewest" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="logs\**" CopyToPublishDirectory="PreserveNewest" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="Plugins\**" CopyToPublishDirectory="PreserveNewest" CopyToOutputDirectory="PreserveNewest" />    
+  </ItemGroup> 
   
   <ItemGroup>
     <None Update="Rotativa\Linux\wkhtmltopdf">

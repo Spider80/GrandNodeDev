@@ -26,7 +26,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="wwwroot\**" CopyToPublishDirectory="Never" />
+    <Content Include="wwwroot\administration\**" CopyToPublishDirectory="Never" CopyToOutputDirectory="PreserveNewest"/>
     <Content Include="Areas\**" CopyToPublishDirectory="PreserveNewest"/>
   </ItemGroup>
 </Project>

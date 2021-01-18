@@ -17,8 +17,8 @@
     <ProjectReference Include="..\Grand.Api\Grand.Api.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="wwwroot\**" CopyToPublishDirectory="Never" />
+    <Content Include="wwwroot\**" CopyToPublishDirectory="Never" CopyToOutputDirectory="PreserveNewest" />
     <Content Include="Themes\**" CopyToPublishDirectory="PreserveNewest" CopyToOutputDirectory="PreserveNewest" />
-    <Content Include="Views\**" CopyToPublishDirectory="PreserveNewest" CopyToOutputDirectory="PreserveNewest"/>
+    <Content Include="Views\**" CopyToOutputDirectory="PreserveNewest"/>
   </ItemGroup>
 </Project>
