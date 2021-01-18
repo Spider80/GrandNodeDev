@@ -24,8 +24,9 @@ namespace Grand.Startup
             }
         }
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
+        public static IHostBuilder CreateHostBuilder(string[] args)
+        {
+            return Host.CreateDefaultBuilder(args)
                 .UseSerilog()
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
@@ -38,5 +39,6 @@ namespace Grand.Startup
                     options.ValidateScopes = false;
                     options.ValidateOnBuild = false;
                 });
+        }
     }
 }
