@@ -8,19 +8,11 @@ namespace Grand.Startup
 {
     public class Program
     {
-        private static string ContentRootPath { get; set; } = Directory.GetCurrentDirectory();
         public static void Main(string[] args)
         {
 
             try
             {
-                #if DEBUG
-
-                ContentRootPath += @"\bin\Debug";
-                if (!Directory.Exists(ContentRootPath))
-                    ContentRootPath = Directory.GetCurrentDirectory();
-
-                #endif
                 CreateHostBuilder(args).Build().Run();
             }
             catch (Exception ex)
@@ -48,7 +40,7 @@ namespace Grand.Startup
                     options.ValidateScopes = false;
                     options.ValidateOnBuild = false;
                 })
-                .UseContentRoot(ContentRootPath);
+                .UseContentRoot(AppContext.BaseDirectory);
         }
     }
 }
